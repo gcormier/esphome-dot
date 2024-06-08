@@ -1,0 +1,59 @@
+kibot:
+  version: 1
+
+preflight:
+  check_zone_fills: true
+  fill_zones: true
+
+outputs:
+  - name: 'panel'
+    type: panelize
+    options:
+      title: '+ (Panel)'
+      units: mm
+      configs:
+        - layout:
+            rows: 2
+            cols: 4
+            space: 0
+          tabs:
+            type: full
+          cuts:
+            type: vcuts
+            layer: Edge.Cuts
+            template: ''
+          framing:
+            type: railstb
+            width: 5mm
+            space: 3mm
+            fillet: 1mm
+            mintotalheight: 70mm
+            mintotalwidth: 70mm
+          tooling:
+            type: 4hole
+            hoffset: 5mm
+            voffset: 2.5mm
+            size: 2mm
+          fiducials:
+            type: 4fid
+            hoffset: 15mm
+            voffset: 3.85mm
+            coppersize: 1mm
+            opening: 2mm
+          text:
+            type: simple
+            text: JLCJLCJLCJLC
+            anchor: mt
+            voffset: 2.5
+            hjustify: center
+            vjustify: center
+          text2:
+            type: simple
+            text: Design created on {date} - <<hash>>
+            anchor: mb
+            voffset: -2.5
+            hjustify: center
+            vjustify: center
+          post:
+            refillzones: true
+            origin: bl

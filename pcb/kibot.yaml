@@ -1,0 +1,24 @@
+# Use JLC template. Variables can be found in
+# https://github.com/INTI-CMNB/KiBot/blob/master/kibot/resources/config_templates/JLCPCB.kibot.yaml
+
+kibot:
+  version: 1
+
+#preflight:
+#  run_drc: true
+#  filters:
+#    - filter: 'Ignore J1 shield connections'
+#      error: 'unconnected_items'
+#      regex: 'J1-SHIELD-PadS1'
+
+import:
+  - file: JLCPCB
+    definitions:
+      _KIBOT_POS_ONLY_SMD: false
+      #_KIBOT_MANF_DIR: './'
+      _KIBOT_PLOT_FOOTPRINT_VALUES: true
+outputs:
+  - name: PDF_Print
+    comment: 'Exports the PCB to the most common exhange format. Suitable for printing.'
+    type: 'pdf_sch_print'
+    dir: ./

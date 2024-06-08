@@ -1,0 +1,17 @@
+name: "Fabrication - Panel"
+on:
+  push:
+    paths:
+      - '**.kicad_sch'
+      - '**.kicad_pcb'
+      - '**kibot.yaml'
+    tags:
+      - pcb*
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  fabrication-panel:
+    uses: gcormier/kicad-jobs/.github/workflows/kicad-fabrication-panel-dev.yaml@main
+    permissions:
+      contents: write
