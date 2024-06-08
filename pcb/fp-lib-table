@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "!esphome-dot")(type "KiCad")(uri "${KIPRJMOD}/esphome-dot.pretty")(options "")(descr ""))
+)
