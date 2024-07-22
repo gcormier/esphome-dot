@@ -68,19 +68,8 @@
 	)
 	(attr through_hole)
 	(fp_circle
-		(center -2 -2.192991)
-		(end -1.1 -2.192991)
-		(stroke
-			(width 0.1)
-			(type default)
-		)
-		(fill none)
-		(layer "Edge.Cuts")
-		(uuid "fc2d1a9c-d434-4e30-a27d-780c55a5f912")
-	)
-	(fp_circle
-		(center -2 1.807009)
-		(end -1.1 1.807009)
+		(center -2 -1.807009)
+		(end -1.1 -1.807009)
 		(stroke
 			(width 0.1)
 			(type default)
@@ -88,6 +77,17 @@
 		(fill none)
 		(layer "Edge.Cuts")
 		(uuid "ea150cf3-7756-465d-81e6-c42057d733e8")
+	)
+	(fp_circle
+		(center -2 2.192991)
+		(end -1.1 2.192991)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill none)
+		(layer "Edge.Cuts")
+		(uuid "fc2d1a9c-d434-4e30-a27d-780c55a5f912")
 	)
 	(fp_line
 		(start -6 -4)
@@ -152,7 +152,7 @@
 		)
 	)
 	(pad "1" thru_hole circle
-		(at 4.9 -1.193)
+		(at 4.9 1.193)
 		(size 2.4 2.4)
 		(drill 1.8)
 		(layers "*.Cu" "*.Mask")
@@ -160,7 +160,7 @@
 		(uuid "dc076ce7-3248-43d4-88f2-97c798cb9cf3")
 	)
 	(pad "2" thru_hole oval
-		(at 3 3.207009)
+		(at 3 -3.207009)
 		(size 2 1.6)
 		(drill oval 1.4 1)
 		(layers "*.Cu" "*.Mask")
@@ -168,7 +168,7 @@
 		(uuid "057a4df2-6da2-44c9-b9d1-6065a6e3885a")
 	)
 	(pad "3" thru_hole oval
-		(at 6 1.7)
+		(at 6 -1.7)
 		(size 2 1.6)
 		(drill oval 1.4 1)
 		(layers "*.Cu" "*.Mask")
