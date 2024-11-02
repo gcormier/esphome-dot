@@ -56,7 +56,7 @@ microphone:
   id: external_mic
   adc_type: external
   i2s_din_pin: GPIO6
-
+  i2s_mode: secondary # primary driven by ESP32, secondary driven by device
 #  pdm: false  # default is false
   sample_rate: 48000  # esphome default is 16000, ak default is 48khz
   bits_per_sample: 16bit  # default is 32bit, ak default is 24bit
@@ -78,4 +78,11 @@ binary_sensor:
 #  on_wake_word_detected:
 #    then:
 #      - logger.log: "Wake word detected!"
+
+#external_components:
+#  - source: github://jesserockz/esphome-components
+#    components: [udp_audio]
 #
+#udp_audio:
+#  ip_address: 192.168.1.135
+#  port: 6056

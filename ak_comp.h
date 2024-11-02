@@ -16,18 +16,19 @@ class AK5704 : public Component, public i2c::I2CDevice {
   void setup() override {
 
     set_i2c_bus(myBus);
+    delay(1000);
     // Set PDN (powerdown) to false via the i2c gpio expander
     set_i2c_address(GPIO_ADDR);
     write_byte(0xF4, 0x00);
 
-    delay(30);
+    delay(50);
 
     set_i2c_address(AK5704_ADDR);
-
+    // MSN in here
     write_byte(0x00, 0x20);
+    delay(15);
     write_byte(0x01, 0x80);
-    write_byte(0x04, 0xF4);
-    write_byte(0x05, 0x11);
+    delay(15);
 
     // FS and CM
     write_byte(0x08, 0x0A);
@@ -38,6 +39,15 @@ class AK5704 : public Component, public i2c::I2CDevice {
     // PLM
     write_byte(0x0D, 0x5F);
     
+    // MONON in here
+    write_byte(0x04, 0xF4);
+
+    write_byte(0x05, 0x11);
+
+
+
+    
+    // TDM, DIF, DLC
     write_byte(0x0E, 0x10);
     
     write_byte(0x00, 0x27);
