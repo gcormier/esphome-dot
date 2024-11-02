@@ -26,13 +26,14 @@ logger:
 
 custom_component:
 - lambda: |-
-    auto my_custom = new AK5704();
+    auto my_custom = new AK5704(id(i2cbus));
     return {my_custom};
 
 i2c:
   sda: GPIO14
   scl: GPIO13
   scan: True
+  id: i2cbus
 
 psram:
   mode: octal
@@ -61,7 +62,16 @@ microphone:
   bits_per_sample: 16bit  # default is 32bit, ak default is 24bit
 #  channel: stereo # default is stereo, ak default is stereo
 
-
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO10
+      mode: INPUT_PULLDOWN
+    id: input_trigger
+    on_press:
+      then:
+        - lambda: |-
+            id(i2cbus).dump_config();
 #micro_wake_word:
 #  models:
 #    - model: okay_nabu

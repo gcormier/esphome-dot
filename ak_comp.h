@@ -6,9 +6,16 @@
 #define GPIO_ADDR 0x08
 
 class AK5704 : public Component, public i2c::I2CDevice {
+    protected:
+    I2CBus *myBus;
+
  public:
+    AK5704(I2CBus *parent) : I2CDevice() {
+        myBus = parent;
+    }
   void setup() override {
 
+    set_i2c_bus(myBus);
     // Set PDN (powerdown) to false via the i2c gpio expander
     set_i2c_address(GPIO_ADDR);
     write_byte(0xF4, 0x00);
