@@ -3,7 +3,7 @@
 | Pin | Value | Connected       | Pin | Value | Connected       |
 | --- | ----- | --------------- | --- | ----- | --------------- |
 | 1   | GND   | -               | 2   | AVDD  | 3.3V AK PIN18   |
-| 3   | BTN   | Alexa, pulled up| 4   |       | -               |
+| 3   | BTN   | Alexa, pulled up| 4   | BTNINT| Pulled low when volume button pushed |
 | 5   |       | -               | 6   | SDA   | AK PIN6         |
 | 7   |       | -               | 8   | LRCK  | AK PIN7         |
 | 9   |       | -               | 10  | GND   | -               |
@@ -16,3 +16,9 @@
 | 23  | TVDD  | 1.8V AK PIN23   | 24  |       | -               |
 | 25  |       | -               | 26  |       | -               |
 | 27  |       | -               | 28  |       | -               |
+
+
+## Test Points
+TM24 - Mute button  
+tm17 button
+tm18 - button near ribbon

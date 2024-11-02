@@ -15,3 +15,19 @@ Register 0x08 stock is 0x0D which is
 
 CM = 00 = 256fs
 FS = 1101 = 97kHz
+
+
+try
+MCKI = 9.6Mhz
+fs = 48khz
+PLD 000EH
+PLM 005FH
+FS 1010
+CM 00
+
+MCKI = 16MHz
+fs = 48khz
+PLD = 0018h
+PLM = 005Fh
+FS 1010b
+CM 00b

@@ -1,8 +1,19 @@
+# esphome compile esphome-testing.yaml && esphome upload esphome-testing.yaml && esphome logs esphome-testing.yaml
 esphome:
   name: testtown
   platformio_options:
     board_build.flash_mode: dio # If you don't specify this using esp-idf framework, the device will boot-loop.
-
+    #lib_deps:
+    #  - Wire
+  on_boot:
+    priority: 600
+    then:
+      - output.turn_on: mclk
+      - output.set_level:
+          id: mclk
+          level: 0.5
+  includes:
+  - ak_comp.h
 esp32:
     board: esp32-s3-devkitc-1
     flash_size: 8MB
@@ -11,16 +22,33 @@ esp32:
       version: recommended
 logger:
   level: VERBOSE
-  hardware_uart: USB_SERIAL_JTAG
+  #hardware_uart: USB_SERIAL_JTAG
+
+custom_component:
+- lambda: |-
+    auto my_custom = new AK5704();
+    return {my_custom};
+
+i2c:
+  sda: GPIO14
+  scl: GPIO13
+  scan: True
 
 psram:
   mode: octal
   speed: 40MHz
 
+output:
+  - platform: ledc
+    pin: GPIO7
+    id: mclk
+    frequency: 16MHz
+
 i2s_audio:
   i2s_lrclk_pin: GPIO4
   i2s_bclk_pin: GPIO5
-  i2s_mclk_pin: GPIO7
+
+  #i2s_mclk_pin: GPIO7
 
 microphone:
 - platform: i2s_audio
@@ -28,21 +56,16 @@ microphone:
   adc_type: external
   i2s_din_pin: GPIO6
 
-  pdm: false  # default is false
+#  pdm: false  # default is false
   sample_rate: 48000  # esphome default is 16000, ak default is 48khz
   bits_per_sample: 16bit  # default is 32bit, ak default is 24bit
-  channel: stereo # default is stereo, ak default is stereo
+#  channel: stereo # default is stereo, ak default is stereo
 
-# attemps
-# false, 48k, 24b, stereo
-# false, 16000 24, stereo
-# false, 12000, 24, stereo
-# false, 12000, 16, stereo
-# false, 16000, 16, stereo
 
-micro_wake_word:
-  models:
-    - model: okay_nabu
-  on_wake_word_detected:
-    then:
-      - logger.log: "Wake word detected!"
+#micro_wake_word:
+#  models:
+#    - model: okay_nabu
+#  on_wake_word_detected:
+#    then:
+#      - logger.log: "Wake word detected!"
+#

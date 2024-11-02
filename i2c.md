@@ -1,4 +1,9 @@
+esptool.py --chip esp32s3 --port /dev/ttyACM0 erase_flash
 # i2c
+
+# Devices
+## 0x39 (57 decimal)
+This is TSL25403 light sensor, https://www.mouser.ca/datasheet/2/588/asset_pdf_25493362-3432743.pdf
 
 ## What we want
 1. Set DMIC1 DMIC2 to 1

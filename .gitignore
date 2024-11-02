@@ -30,3 +30,4 @@ fp-info-cache
 pcb/private_design_notes.txt
 pcb/~esphome-dot.kicad_pcb.lck
 pcb/~esphome-dot.kicad_sch.lck
+.esphome/*
